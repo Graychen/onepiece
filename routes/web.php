@@ -14,6 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/foo', function () {
-        return 'Hello World';
+Route::group(['namespace'=>'Home'], function(){
+         Route::get('index', 'HomeController@index');
+});
+Route::group(['prefix'=>'admin','namespace' => 'Admin'], function(){
+         Route::get('index/{id}', 'AdminController@index');
 });
