@@ -11,14 +11,9 @@
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
-Route::group(['namespace' => 'Home'], function(){
-    Route::get('/',function(){
-        return view('welcome');
-    });
+Route::get('/', function () {
+    return view('welcome');
 });
-Route::group(['namespace' => 'Admin'], function(){
-
+Route::get('/foo', function () {
+        return 'Hello World';
 });
