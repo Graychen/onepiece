@@ -16,7 +16,20 @@ Route::get('/', function () {
 });
 Route::group(['namespace'=>'Home'], function(){
          Route::get('index', 'HomeController@index');
+         Route::get('create', 'HomeController@create');
 });
 Route::group(['prefix'=>'admin','namespace' => 'Admin'], function(){
-         Route::get('index/{id}', 'AdminController@index');
+         Route::get('index', 'AdminController@index');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
