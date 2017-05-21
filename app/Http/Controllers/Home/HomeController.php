@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Home;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
+
+use App\Http\Requests;
 
 class HomeController extends Controller
 {
@@ -18,5 +21,11 @@ class HomeController extends Controller
     public function create()
     {
         return view('home.create');
+    }
+
+
+    public function validate(Requests\PicRequest $request)
+    {
+        return 'success';
     }
 }
