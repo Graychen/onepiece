@@ -17,6 +17,7 @@ Route::get('/', function () {
 Route::group(['namespace'=>'Home'], function(){
          Route::get('index', 'HomeController@index');
          Route::get('create', 'HomeController@create');
+         Route::post('upload', 'FileController@upload');
 });
 Route::group(['prefix'=>'admin','namespace' => 'Admin'], function(){
          Route::get('index', 'AdminController@index');
