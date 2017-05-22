@@ -24,8 +24,8 @@ class HomeController extends Controller
     }
 
 
-    public function validate(Requests\PicRequest $request)
-    {
-        return 'success';
-    }
+//    public function validate(Requests\PicRequest $request)
+//    {
+//        return 'success';
+//    }
 }

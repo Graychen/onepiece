@@ -6,15 +6,19 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Models\Goods;
 
 
 class FileController extends Controller
 {
-    public function upload(Requests\PicRequest $request)
+    public function upload(Request $request)
     {
+        $goods=new Goods;
         $path = $request->file('file')->store('file');
-        
-        return $path;
+        $goods->name=$request->name;
+        $goods->pic =$path;
+        $goods->save();
+          
     }    
 
 }
