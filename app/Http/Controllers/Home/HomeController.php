@@ -23,6 +23,11 @@ class HomeController extends Controller
         return view('home.create');
     }
 
+    public function success()
+    {
+        return "success";
+    }
+
 
 //    public function validate(Requests\PicRequest $request)
 //    {

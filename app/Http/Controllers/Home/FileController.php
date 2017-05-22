@@ -17,7 +17,11 @@ class FileController extends Controller
         $path = $request->file('file')->store('file');
         $goods->name=$request->name;
         $goods->pic =$path;
-        $goods->save();
+        if($goods->save()!==false){
+            return redirect('success');
+        }else{
+            return redirect('create');
+        }
           
     }    
 
