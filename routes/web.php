@@ -11,10 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 Route::group(['namespace'=>'Home'], function(){
+         Route::get('/', 'HomeController@index');
          Route::get('index', 'HomeController@index');
          Route::get('create', 'HomeController@create');
          Route::get('success', 'HomeController@success');
@@ -28,10 +26,3 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index');
