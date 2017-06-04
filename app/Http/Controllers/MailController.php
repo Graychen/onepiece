@@ -18,7 +18,6 @@ class MailController extends Controller
                        $to='13780185250@163.com';
                        $message->to($to)->subject('测试邮件');
                });
-               var_dump($flag);
                if($flag){
                        echo '发送成功,请查收!';
                }else{
