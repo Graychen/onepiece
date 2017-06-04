@@ -21,6 +21,7 @@ Route::group(['namespace'=>'Home'], function(){
 Route::group(['prefix'=>'admin','namespace' => 'Admin'], function(){
          Route::get('index', 'AdminController@index');
 });
+Route::get('mail/send','MailController@send');
 
 Auth::routes();
 
