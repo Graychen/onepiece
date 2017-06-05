@@ -5,7 +5,7 @@
 <div class="row">
   <div class="col-xs-6 col-md-3">
       <a href="#" class="thumbnail">
-            <img src="{{ $good->pic }}" alt="{{ $good->name }}">
+            <img src="{{Storage::url($good->pic)}}" alt="{{ $good->name }}">
       </a>
   </div>
 </div>
