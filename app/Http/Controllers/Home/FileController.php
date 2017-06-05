@@ -14,7 +14,7 @@ class FileController extends Controller
     public function upload(Request $request)
     {
         $goods=new Goods;
-        $path = $request->file('file')->store('file');
+        $path = $request->file('file')->store('public');
         $goods->name=$request->name;
         $goods->pic =$path;
         if($goods->save()!==false){
