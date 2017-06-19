@@ -17,6 +17,7 @@ class CrateGoodsTable extends Migration
         Schema::create('goods',function(Blueprint $table){
             $table->engine = 'InnoDB';
             $table->increments('id');
+            $table->integer('user_id')->comment('发布者');
             $table->string('name')->comment('商品名词');
             $table->string('pic')->comment('商品图片');
             $table->string('price')->comment('短租价格');
