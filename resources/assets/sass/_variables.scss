@@ -1,7 +1,6 @@
 
 // Body
-$body-bg: #f5f8fa;
-
+$body-bg: #eee;
 // Borders
 $laravel-border-color: darken($body-bg, 10%);
 $list-group-border: $laravel-border-color;
@@ -36,3 +35,29 @@ $input-color-placeholder: lighten($text-color, 30%);
 
 // Panels
 $panel-default-heading-bg: #fff;
+
+$white-backgroud: #fff;
+
+.bg-white { 
+  background-color: $white-backgroud;
+  display: block;
+  padding: 4px;
+  margin-bottom: 22px;
+  line-height: 1.6;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      margin-left: auto;
+      margin-right: auto;
+  }
+  transition: border 0.2s ease-in-out;
+      &:hover { color: red  }
+      h3 {
+        color:black;        
+      }
+}
+
+
