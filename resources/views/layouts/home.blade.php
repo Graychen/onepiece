@@ -15,7 +15,7 @@
 
     <!-- Scripts -->
     <script>
-        window.Onepiece = {!! json_encode([
+        window.Laravel = {!! json_encode([
             'csrfToken' => csrf_token(),
         ]) !!};
     </script>
