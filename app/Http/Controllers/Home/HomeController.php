@@ -32,7 +32,6 @@ class HomeController extends Controller
     public function detail(Request $request,$id)
     {
         $goods=DB::table('goods')->where('id',$id)->first();
-       // dd($goods);
         return view('home.detail',['goods'=>$goods]);
             
     }
