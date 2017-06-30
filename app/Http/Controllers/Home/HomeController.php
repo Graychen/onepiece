@@ -29,6 +29,13 @@ class HomeController extends Controller
         return "success";
     }
 
+    public function detail(Request $request,$id)
+    {
+        $goods=DB::table('goods')->where('id',$id)->first();
+        return view('home.detail',['goods'=>$goods]);
+            
+    }
+
 
 //    public function validate(Requests\PicRequest $request)
 //    {
