@@ -19,3 +19,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/foo', function () {
         return 'Hello World';
 });
+Route::group(['namespace'=>'Api'], function(){
+        Route::resource('goods','GoodController');
+});
