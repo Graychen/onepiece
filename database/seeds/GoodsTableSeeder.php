@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Models\Goods as Goods;
 
 class GoodsTableSeeder extends Seeder
 {
@@ -11,10 +12,6 @@ class GoodsTableSeeder extends Seeder
      */
     public function run()
     {
-        //
-        DB::table('goods')->insert([
-            'name'=>str_random(10),
-            'pic'=>str_random(10),
-        ]);
+            factory(Goods::class,10)->create();
     }
 }
