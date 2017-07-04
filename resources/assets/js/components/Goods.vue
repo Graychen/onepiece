@@ -1,44 +1,32 @@
 <template>
-  <div class="col-xs-6 col-md-3" data-toggle="modal" data-target="#myModal">
+<content>
+  <div v-for="good in goods" :key=""  class="col-xs-6 col-md-3">
       <a href="#" class="text-center bg-white">
-            <img src="{{Storage::url($good->pic)}}" alt="{{ $good->name }}">
-                  <h3>{{ $good->name }}</h3>
+                  <h3 >{{good.name}}</h3>
       </a>
   </div>
+</content>
 </template>
 
 <script>
     export default {
-        props: ['post', 'favorited'],
-
-        data: function() {
-            return {
-                isFavorited: '',
-            }
+        data(){
+         return{
+                goods:[
+                ]
+         }
         },
-
-        mounted() {
-            this.isFavorited = this.isFavorite ? true : false;
+        mounted(){
+            this.getGoods();
         },
-
-        computed: {
-            isFavorite() {
-                return this.favorited;
-            },
-        },
-
-        methods: {
-            favorite(get) {
-                axios.get('/goods/'+post)
-                    .then(response => this.isFavorited = true)
-                    .catch(response => console.log(response.data));
-            },
-
-            unFavorite(post) {
-                axios.post('/goods/'+post)
-                    .then(response => this.isFavorited = false)
-                    .catch(response => console.log(response.data));
-            }
+        methods:{
+                getGoods(goods){
+                        axios.get('http://localhost/api/goods')
+                        .then(reponse=>console.log(reponse.data))
+                        .catch(reponse=>console.log(reponse.data));        
+                }
         }
+
+
     }
 </script>
