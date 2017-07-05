@@ -31823,7 +31823,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       }
     }, [_c('img', {
       attrs: {
-        "src": good.pic,
+        "src": 'storage/' + good.pic,
         "alt": good.name
       }
     }), _vm._v(" "), _c('h3', [_vm._v(_vm._s(good.name))])])])

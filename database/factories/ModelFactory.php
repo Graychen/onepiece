@@ -27,7 +27,7 @@ $factory->define(App\Models\Goods::class, function (Faker\Generator $faker) {
         return [
             'user_id'=>$faker->randomDigitNotNull,
             'name'=>$faker->name,
-            'pic'=>$faker->image($dir = '/tmp', $width = 640, $height = 480),
+            'pic'=>'YYyHEBmXOmEjMIfNJ6CofFDnGSdockW660V1JGHa.png',
             'price'=>$faker->buildingNumber,
             'time'=>$faker->randomDigitNotNull,
             'unit'=>$faker->randomDigitNotNull,
