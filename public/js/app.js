@@ -12185,6 +12185,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = {
         data: function data() {
@@ -31813,13 +31814,19 @@ module.exports = Component.exports
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('content', _vm._l((_vm.goods), function(good) {
     return _c('div', {
+      key: good,
       staticClass: "col-xs-6 col-md-3"
     }, [_c('a', {
       staticClass: "text-center bg-white",
       attrs: {
         "href": "#"
       }
-    }, [_c('h3', [_vm._v(_vm._s(good.name))])])])
+    }, [_c('img', {
+      attrs: {
+        "src": good.pic,
+        "alt": good.name
+      }
+    }), _vm._v(" "), _c('h3', [_vm._v(_vm._s(good.name))])])])
   }))
 },staticRenderFns: []}
 module.exports.render._withStripped = true

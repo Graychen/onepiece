@@ -1,9 +1,10 @@
 <template>
 <content>
-  <div v-for="good in goods" :key=""  class="col-xs-6 col-md-3">
-      <a href="#" class="text-center bg-white">
-                  <h3 >{{good.name}}</h3>
-      </a>
+  <div v-for="good in goods" :key="good"  class="col-xs-6 col-md-3">
+              <a href="#" class="text-center bg-white">
+                    <img :src="good.pic" :alt="good.name">
+                          <h3>{{good.name}}</h3>
+              </a>
   </div>
 </content>
 </template>
