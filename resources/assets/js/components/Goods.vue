@@ -12,17 +12,18 @@
     export default {
         data(){
          return{
-                goods:[
-                ]
+                goods:[]
          }
         },
         mounted(){
             this.getGoods();
         },
         methods:{
-                getGoods(goods){
+                getGoods(){
                         axios.get('http://localhost/api/goods')
-                        .then(reponse=>console.log(reponse.data))
+                        .then(reponse=>{
+                               this.goods=reponse.data.data;
+                                })
                         .catch(reponse=>console.log(reponse.data));        
                 }
         }

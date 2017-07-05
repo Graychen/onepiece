@@ -11270,9 +11270,8 @@ module.exports = g;
 
 /***/ }),
 /* 11 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -12198,9 +12197,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
 
         methods: {
-                getGoods: function getGoods(goods) {
+                getGoods: function getGoods() {
+                        var _this = this;
+
                         axios.get('http://localhost/api/goods').then(function (reponse) {
-                                return console.log(reponse.data);
+                                _this.goods = reponse.data.data;
                         }).catch(function (reponse) {
                                 return console.log(reponse.data);
                         });
