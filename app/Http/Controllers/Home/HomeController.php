@@ -36,6 +36,10 @@ class HomeController extends Controller
             
     }
 
+    public function passport()
+    {
+        return view('home.passport');
+    }
 
 //    public function validate(Requests\PicRequest $request)
 //    {
