@@ -1,46 +1,34 @@
 <template>
-    <span>
-        <a href="#" v-if="isFavorited" @click.prevent="unFavorite(post)">
-            <i  class="fa fa-heart"></i>
-        </a>
-        <a href="#" v-else @click.prevent="favorite(post)">
-            <i  class="fa fa-heart-o"></i>
-        </a>
-    </span>
+<content>
+  <div v-for="good in goods" :key="good"  class="col-xs-6 col-md-3">
+              <a href="#" class="text-center bg-white">
+                    <img :src="'storage/'+good.pic" :alt="good.name">
+                          <h3>{{good.name}}</h3>
+              </a>
+  </div>
+</content>
 </template>
 
 <script>
     export default {
-        props: ['post', 'favorited'],
-
-        data: function() {
-            return {
-                isFavorited: '',
-            }
+        data(){
+         return{
+                goods:[]
+         }
         },
-
-        mounted() {
-            this.isFavorited = this.isFavorite ? true : false;
+        mounted(){
+            this.getGoods();
         },
-
-        computed: {
-            isFavorite() {
-                return this.favorited;
-            },
-        },
-
-        methods: {
-            favorite(post) {
-                axios.post('/favorite/'+post)
-                    .then(response => this.isFavorited = true)
-                    .catch(response => console.log(response.data));
-            },
-
-            unFavorite(post) {
-                axios.post('/unfavorite/'+post)
-                    .then(response => this.isFavorited = false)
-                    .catch(response => console.log(response.data));
-            }
+        methods:{
+                getGoods(){
+                        axios.get('http://localhost/api/goods')
+                        .then(reponse=>{
+                               this.goods=reponse.data.data;
+                                })
+                        .catch(reponse=>console.log(reponse.data));        
+                }
         }
+
+
     }
 </script>

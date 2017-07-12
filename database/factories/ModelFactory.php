@@ -22,3 +22,16 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(App\Models\Goods::class, function (Faker\Generator $faker) {
+        return [
+            'user_id'=>$faker->randomDigitNotNull,
+            'name'=>$faker->name,
+            'pic'=>'YYyHEBmXOmEjMIfNJ6CofFDnGSdockW660V1JGHa.png',
+            'price'=>$faker->buildingNumber,
+            'time'=>$faker->randomDigitNotNull,
+            'unit'=>$faker->randomDigitNotNull,
+            'created_at'=>$faker->dateTime,
+            'updated_at'=>$faker->dateTime
+        ];
+});
