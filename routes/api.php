@@ -16,9 +16,9 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get('/foo', function () {
-        return 'Hello World';
-});
 Route::group(['namespace'=>'Api'], function(){
+          // Login and Register
+        Route::post('login', 'AuthController@authenticate');
+        Route::post('register', 'AuthController@register');
         Route::resource('goods','GoodController');
 });

@@ -12,6 +12,13 @@ const routes = [
                require.ensure([], () => resolve(require('./components/Goods.vue')), 'index');
                  },
    name:'index'
+  },
+  {
+   path: '/login',
+   component: (resolve) => {
+               require.ensure([], () => resolve(require('./components/Login.vue')), 'index');
+                 },
+   name:'index'
   }
 ]
 export default routes;
