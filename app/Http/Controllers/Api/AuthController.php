@@ -4,11 +4,10 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use JWTAuth;
+use Tymon\JWTAuth;
 use Tymon\JWTAuth\Exception\JWTException;
 use App\User;
 use Validator;
-
 
 class AuthController extends BaseApiController
 {
@@ -29,26 +28,27 @@ class AuthController extends BaseApiController
     public function register(Request $request)
     {
             $data = $request->all();
-            $reles=[
+            $rules=[
                 'name'=>'required|min:3|max:20',
                 'mobile'=>'required|min:1|max:12',
-                'password'=>'required|confirmed',
+                'password' => 'required',
             ];
 
             $validator=Validator::make($request->all(), $rules, [] , \App\User::$aliases);
 
-            if($validator->fials) {
-                return reponse($validator->message()->first(),401);
+            if($validator->fails()) {
+                return response($validator->messages()->first(),401);
             }
 
-            try{
+           // try {
                 $newUser = User::create($data);
-
+                var_dump($newUser);
                 $token = JWTAuth::fromUser($newUser);
-                return reponse()->json(compact('token'));
-            } catch(\Exception $e){
-                return response('system error',500);
-            }
+                // 返回生成的 token
+                return response()->json(compact('token'));
+           // } catch (\Exception $e) {
+           //     return response('system error', 500);
+           // }
     }
 
     public function getAuthenticateUser(Request $request)
