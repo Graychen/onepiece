@@ -19,6 +19,13 @@ const routes = [
                require.ensure([], () => resolve(require('./components/Login.vue')), 'index');
                  },
    name:'index'
+  },
+  {
+   path: '/register',
+   component: (resolve) => {
+               require.ensure([], () => resolve(require('./components/Register.vue')), 'register');
+                 },
+   name:'register'
   }
 ]
 export default routes;
