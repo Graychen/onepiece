@@ -54,6 +54,7 @@
 </template>
 
 <script>
+import config from '../config.js'
     export default {
         data(){
          return{
@@ -72,7 +73,7 @@
           },
         methods:{
                 register(){
-                        this.axios.post('register',this.user).then(reponse=>{
+                        axios.post('register',this.user).then(reponse=>{
                                 console.log(reponse);
                         },reponse=>{
                                 console.log(reponse);
