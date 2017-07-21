@@ -41,7 +41,7 @@
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary" @click.native="register" :disable="!canSubmit">
+                                <button type="submit" class="btn btn-primary" @click="register" :disable="!canSubmit">
                                     注册
                                 </button>
                             </div>
@@ -72,11 +72,17 @@ import config from '../config.js'
                 }
           },
         methods:{
-                register(){
-                        axios.post('register',this.user).then(reponse=>{
+                register:function(){
+                        axios.post('user',this.user).then(reponse=>{
                                 console.log(reponse);
+                                localStore.setItem(config.jwtTokenName,reponse.data.token);
+                                this.$store.commit('UPDATE_IS_LOGIN',reponse.data.token);
+                                this.$root.success("登陆成功");
+                                setTimeout(()=>{
+                                        this.$route.push('/user');
+                                                });
                         },reponse=>{
-                                console.log(reponse);
+                                this.$root.error(reponse.data.err);
                         });
                 }
         }
