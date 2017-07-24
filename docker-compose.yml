@@ -1,0 +1,33 @@
+version: '2'
+services:
+
+        web:
+            build: ./
+            volumes:
+                - ./:/var/www/html
+                - ~/.composer/cache:/root/.composer/cache
+                - ~/.ssh:/root/.ssh
+                - ./services/php/local.ini:/user/local/etc/php/conf.d/local.ini
+            links:
+                - mysql
+                - redis
+            environment:
+                ENABLE_ENV_FILE: 1
+                ENABLE_LOCALCONF：1
+            expose:
+                - 9000 
+
+        nginx:
+            build: ./services/nginx
+            ports:
+                - "999:443"
+            links:
+                - web
+            volumes_from:
+                - web
+
+        mysql:
+            image: mysql:5.6
+            ports:
+
+
