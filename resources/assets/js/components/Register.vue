@@ -75,12 +75,12 @@ import config from '../config.js'
                 register:function(){
                         axios.post('user',this.user).then(reponse=>{
                                 console.log(reponse);
-                                localStore.setItem(config.jwtTokenName,reponse.data.token);
-                                this.$store.commit('UPDATE_IS_LOGIN',reponse.data.token);
-                                this.$root.success("登陆成功");
-                                setTimeout(()=>{
-                                        this.$route.push('/user');
-                                                });
+                             //   localStore.setItem(config.jwtTokenName,reponse.data.token);
+                             //   this.$store.commit('UPDATE_IS_LOGIN',reponse.data.token);
+                             //   this.$root.success("登陆成功");
+                             //   setTimeout(()=>{
+                             //           this.$route.push('/user');
+                             //                   });
                         },reponse=>{
                                 this.$root.error(reponse.data.err);
                         });
