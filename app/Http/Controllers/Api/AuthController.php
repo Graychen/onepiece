@@ -41,21 +41,21 @@ class AutHController extends BaseApiController
         
         $rules = [
             'name' => 'required|min:3|max:20',
-            'mobile' => 'required|min:1|max:12',
-            //'password' => 'required|confirmed',
+            'mobile' => 'required|min:1|max:12|unique:users',
+            'password' => 'required|confirmed',
         ];
         $validator = Validator::make($request->all(), $rules, [], \App\User::$aliases);
         if ($validator->fails()) {
             return response($validator->messages()->first(), 401);
         }
-      //  try {
+        try {
             $newUser = User::create($data);
             $token = JWTAuth::fromUser($newUser);
             // 返回生成的 token
             return response()->json(compact('token'));
-      //  } catch (\Exception $e) {
-      //      return response('system error', 500);
-      //  }
+        } catch (\Exception $e) {
+            return response('system error', 500);
+        }
     }
     /**
      * 获取当前登录的用户
